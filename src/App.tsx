@@ -41,6 +41,7 @@ import { LearnedRoutesModal } from './components/LearnedRoutesModal';
 import { SeoIndexingModal } from './components/SeoIndexingModal';
 import { RouteCompletionModal } from './components/RouteCompletionModal';
 import { ReadOnlyShareModal } from './components/ReadOnlyShareModal';
+import { ConfigureToolsModal } from './components/ConfigureToolsModal';
 import { CityQuickBar } from './components/CityQuickBar';
 import { WorldRegion } from './data/worldwideLocations';
 
@@ -767,99 +768,18 @@ export default function App() {
                 )}
               </div>
 
-              {/* Clean 3-Dot More Tools Menu */}
-              <div className="relative">
-                <button
-                  id="more-options-menu-btn"
-                  onClick={() => {
-                    setIsMoreMenuOpen(!isMoreMenuOpen);
-                    setIsLayersDropdownOpen(false);
-                  }}
-                  className="w-10 h-10 rounded-2xl bg-neutral-900/95 hover:bg-neutral-800 text-neutral-200 border border-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-colors"
-                  title="Tools & Features"
-                >
-                  <SlidersHorizontal className="w-4 h-4" />
-                </button>
-
-                {isMoreMenuOpen && (
-                  <div className="absolute right-0 top-12 w-60 bg-neutral-900 border border-neutral-800 rounded-2xl shadow-2xl p-2 flex flex-col gap-1 z-50 text-xs">
-                    <button
-                      onClick={() => {
-                        setIsMeasuringDistance(!isMeasuringDistance);
-                        setMeasurePoints([]);
-                        setIsMoreMenuOpen(false);
-                        showToast(isMeasuringDistance ? 'Distance measure turned off' : 'Tap points on map to measure distance', 'info');
-                      }}
-                      className={`w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 transition-colors ${
-                        isMeasuringDistance ? 'bg-blue-600 text-white font-bold' : 'hover:bg-neutral-800 text-neutral-300'
-                      }`}
-                    >
-                      <Ruler className="w-4 h-4 text-blue-400" />
-                      <span>Measure Map Distance</span>
-                    </button>
-
-                    <button
-                      id="btn-open-readonly-link-modal"
-                      onClick={() => { setIsReadOnlyModalOpen(true); setIsMoreMenuOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 bg-blue-950/70 hover:bg-blue-900/80 border border-blue-500/40 text-blue-300 font-black transition-colors"
-                    >
-                      <ShieldCheck className="w-4 h-4 text-blue-400" />
-                      <span>🔒 Read-Only Live Link</span>
-                    </button>
-
-                    <button
-                      onClick={() => { setIsLearnedRoutesModalOpen(true); setIsMoreMenuOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 hover:bg-neutral-800 text-emerald-300 font-bold transition-colors"
-                    >
-                      <Brain className="w-4 h-4 text-emerald-400" />
-                      <span>Learned Road Knowledge Base</span>
-                    </button>
-
-                    <button
-                      id="btn-open-seo-indexing-modal"
-                      onClick={() => { setIsSeoModalOpen(true); setIsMoreMenuOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 bg-emerald-950/70 hover:bg-emerald-900/80 border border-emerald-500/40 text-emerald-300 font-black transition-colors"
-                    >
-                      <Globe className="w-4 h-4 text-emerald-400" />
-                      <span>⚡ 1-Click Google & SEO Index</span>
-                    </button>
-
-                    <button
-                      onClick={() => { setIsKarachiModalOpen(true); setIsMoreMenuOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 hover:bg-neutral-800 text-neutral-200 transition-colors"
-                    >
-                      <Building2 className="w-4 h-4 text-emerald-400" />
-                      <span>Karachi Areas & Towns</span>
-                    </button>
-
-                    <button
-                      onClick={() => { setShowExploreBar(!showExploreBar); setIsMoreMenuOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 hover:bg-neutral-800 text-neutral-200 transition-colors"
-                    >
-                      <Sparkles className="w-4 h-4 text-amber-400" />
-                      <span>Explore Places Nearby</span>
-                    </button>
-
-                    <button
-                      onClick={() => { setShowTraffic(!showTraffic); setIsMoreMenuOpen(false); }}
-                      className={`w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 transition-colors ${
-                        showTraffic ? 'bg-orange-600/30 text-orange-400 font-bold' : 'hover:bg-neutral-800 text-neutral-300'
-                      }`}
-                    >
-                      <Flame className="w-4 h-4 text-orange-400" />
-                      <span>Traffic Incidents ({incidents.length})</span>
-                    </button>
-
-                    <button
-                      onClick={() => { setIsEmergencyBannerOpen(true); setIsMoreMenuOpen(false); }}
-                      className="w-full text-left px-3 py-2 rounded-xl flex items-center gap-2 hover:bg-neutral-800 text-red-400 transition-colors"
-                    >
-                      <PhoneCall className="w-4 h-4" />
-                      <span>Emergency SOS 130</span>
-                    </button>
-                  </div>
-                )}
-              </div>
+              {/* Clean Configure & Tools Button */}
+              <button
+                id="more-options-menu-btn"
+                onClick={() => {
+                  setIsMoreMenuOpen(true);
+                  setIsLayersDropdownOpen(false);
+                }}
+                className="w-10 h-10 rounded-2xl bg-neutral-900/95 hover:bg-neutral-800 text-neutral-200 border border-neutral-800 shadow-xl backdrop-blur-md flex items-center justify-center transition-colors"
+                title="Configure Tools & Features"
+              >
+                <SlidersHorizontal className="w-4 h-4 text-emerald-400" />
+              </button>
             </div>
           </div>
 
@@ -1130,6 +1050,30 @@ export default function App() {
       <ReadOnlyShareModal
         isOpen={isReadOnlyModalOpen}
         onClose={() => setIsReadOnlyModalOpen(false)}
+      />
+
+      <ConfigureToolsModal
+        isOpen={isMoreMenuOpen}
+        onClose={() => setIsMoreMenuOpen(false)}
+        mapProvider={mapProvider}
+        onChangeMapProvider={setMapProvider}
+        showTraffic={showTraffic}
+        onToggleTraffic={() => setShowTraffic(!showTraffic)}
+        isMeasuringDistance={isMeasuringDistance}
+        onToggleDistanceMeasure={() => {
+          setIsMeasuringDistance(!isMeasuringDistance);
+          setMeasurePoints([]);
+        }}
+        selectedVehicle={selectedVehicle}
+        onOpenVehicleModal={() => setIsVehicleModalOpen(true)}
+        onOpenLearnedRoutesModal={() => setIsLearnedRoutesModalOpen(true)}
+        onOpenKarachiModal={() => setIsKarachiModalOpen(true)}
+        onOpenReadOnlyModal={() => setIsReadOnlyModalOpen(true)}
+        onOpenSeoModal={() => setIsSeoModalOpen(true)}
+        showExploreBar={showExploreBar}
+        onToggleExploreBar={() => setShowExploreBar(!showExploreBar)}
+        onOpenEmergencyBanner={() => setIsEmergencyBannerOpen(true)}
+        trafficCount={incidents.length}
       />
 
       {/* Route Completion & Arrival Modal */}
