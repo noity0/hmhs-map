@@ -1,0 +1,6 @@
+{
+  "name": "HMHS Map",
+  "description": "HMHS Ultra Live Map — Global & Worldwide Real-Time GPS & Navigation with street-level accuracy, live traffic, satellite imagery, and instant route optimization.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

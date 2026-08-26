@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  #root {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+/* Safe Area Inset Helpers */
+.safe-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+.safe-left {
+  padding-left: max(0.75rem, env(safe-area-inset-left));
+}
+
+.safe-right {
+  padding-right: max(0.75rem, env(safe-area-inset-right));
+}
+
+.urdu-font {
+  font-family: 'Noto Nastaliq Urdu', 'Plus Jakarta Sans', serif;
+}
+
+/* Custom Leaflet Controls Styling */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: #e5e3df;
+  font-family: inherit;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  margin-right: 16px !important;
+  margin-bottom: 80px !important;
+}
+
+@media (max-width: 640px) {
+  .leaflet-control-zoom {
+    display: none !important;
+  }
+}
+
+.leaflet-control-scale {
+  margin-left: 16px !important;
+  margin-bottom: 16px !important;
+  background: rgba(15, 23, 42, 0.75) !important;
+  backdrop-filter: blur(8px) !important;
+  padding: 2px 6px !important;
+  border-radius: 6px !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-control-scale-line {
+  border: 2px solid #10b981 !important;
+  border-top: none !important;
+  color: #f8fafc !important;
+  background: transparent !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Animated pulsing marker */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.gps-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Navigation route pulse */
+@keyframes dash-animation {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animated-route-path {
+  stroke-dasharray: 8, 12;
+  animation: dash-animation 1.5s linear infinite;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.8);
+}
+
+/* Clean HD Satellite Map View */
+.satellite-sharp-hd {
+  filter: brightness(102%) contrast(105%) saturate(108%);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Clear Satellite Transportation & Labels Overlay */
+.satellite-overlay-labels {
+  filter: brightness(105%) contrast(110%);
+}

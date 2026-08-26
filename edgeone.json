@@ -1,0 +1,56 @@
+{
+  "name": "hmhs-map",
+  "domain": "hmhsmap.edgeone.dev",
+  "version": "1.0.0",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "serverEntry": "server.ts",
+  "routes": [
+    {
+      "path": "/api/*",
+      "type": "server"
+    },
+    {
+      "path": "/sitemap.xml",
+      "type": "server"
+    },
+    {
+      "path": "/robots.txt",
+      "type": "server"
+    },
+    {
+      "path": "/*",
+      "type": "static",
+      "fallback": "index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/*",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "ALLOWALL"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(*)"
+        }
+      ]
+    }
+  ],
+  "edgeCache": {
+    "staticAssetsTTL": 86400,
+    "mapTileCacheTTL": 604800,
+    "routingCacheTTL": 600
+  }
+}
