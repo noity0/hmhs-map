@@ -131,6 +131,24 @@ The application is fully bound to the custom domain **`hmhsmap.edgeone.dev`**.
 * Node.js v18+
 * npm or bun
 
+### Git Remote & Push Instructions (If pushing to your own GitHub/GitLab)
+
+If you are pushing this repository to GitHub or GitLab:
+
+1. **Add your remote repository**:
+   ```bash
+   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   ```
+2. **Push to main branch**:
+   ```bash
+   git push -u origin main
+   ```
+3. If the remote already has commits (e.g. an initial license or readme), use:
+   ```bash
+   git pull --rebase origin main
+   git push -u origin main
+   ```
+
 ### Installation & Running Locally
 
 1. **Clone the repository**:
