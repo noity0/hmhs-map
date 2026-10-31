@@ -1,87 +1,129 @@
-# 🗺️ HMHS Map — Live Navigation & Mapping Platform
+# HMHS Map — Interactive Maps & Route Exploration
 
-> A responsive mapping and navigation application with global location search, GPS positioning, interactive maps, route calculation, voice guidance, route comparison, and AI-assisted route evaluation.
+[![GitHub stars](https://img.shields.io/github/stars/noity0/hmhs-map?style=flat-square)](https://github.com/noity0/hmhs-map/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/noity0/hmhs-map?style=flat-square)](https://github.com/noity0/hmhs-map/issues)
+[![Live app](https://img.shields.io/badge/Live%20app-hmhsmap.edgeone.dev-0A8F6A?style=flat-square)](https://hmhsmap.edgeone.dev/)
 
-[![Live Domain](https://img.shields.io/badge/Live-hmhsmap.edgeone.dev-059669?style=for-the-badge)](https://hmhsmap.edgeone.dev/) [![React](https://img.shields.io/badge/React-19-61dafb)](https://react.dev/) [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)](https://www.typescriptlang.org/) [![Leaflet](https://img.shields.io/badge/Maps-Leaflet-green)](https://leafletjs.com/)
+> A responsive mapping and navigation project combining location search, browser geolocation, interactive maps, route exploration, and voice-guidance experiments.
 
-## 🌍 Overview
+**Live application:** [https://hmhsmap.edgeone.dev](https://hmhsmap.edgeone.dev)
 
-HMHS Map is an HMHS navigation project focused on fast location discovery and route exploration. It combines browser GPS, Leaflet mapping, OSRM-based routing, voice navigation, route simulation, offline tile caching, and AI-assisted route evaluation.
+## Overview
 
-**Live app:** https://hmhsmap.edgeone.dev/
+HMHS Map is an HMHS mapping project for exploring places and routes through a browser-based interface. The repository uses React, TypeScript, Leaflet, and Google Maps React integration, with an Express server and Gemini integration for AI-assisted features.
 
-## ✨ Features
+## Features
 
-- 📍 Browser GPS / Locate Me
-- 🌎 Global city and landmark search
-- 🛣️ Route calculation through OSRM services
-- 🗺️ Interactive Leaflet map
-- 🔊 Turn-by-turn voice guidance
-- 🚗 Auto-drive route simulation with speed controls
-- 📊 Live GPS/compass-style telemetry
-- 🤖 Gemini-assisted route evaluation
-- 💾 Browser-side map/tile caching
-- 🔎 Sitemap, robots, and indexing support
-- 📱 Responsive mobile/desktop interface
+- Browser geolocation with user permission.
+- Search-oriented location discovery.
+- Interactive map views.
+- Route calculation and route comparison workflows.
+- Voice-guidance and route-simulation interface elements.
+- AI-assisted route evaluation.
+- Responsive layouts for desktop and mobile screens.
 
-## 🏗️ Architecture
+Actual route availability, map coverage, and feature behavior depend on the configured map and routing services, browser permissions, network access, and provider limits.
+
+## Architecture at a glance
 
 ```text
-GPS / Search
-     ↓
-Location Resolution
-     ↓
-Leaflet Map + Route Services
-     ↓
-OSRM Routing
-     ├── Navigation UI
-     ├── Voice Guidance
-     ├── Route Simulation
-     └── Route Evaluation
+Location input / browser GPS
+            |
+            v
+     Location resolution
+            |
+            v
+   Map and routing services
+            |
+            v
+      React map interface
+       |       |       |
+     Routes  Guidance  Insights
 ```
 
-## 🛠️ Tech Stack
+## Technology stack
 
-- React 19 + TypeScript + Vite
-- Leaflet
-- Express + Node.js
-- OpenStreetMap / OSRM routing services
-- Google Gemini integration
-- Tailwind CSS, Motion, Lucide React
-- EdgeOne deployment configuration
+- React 19, TypeScript, and Vite
+- Leaflet and React Google Maps integration
+- Node.js and Express
+- Google Gemini SDK
+- Tailwind CSS, Motion, and Lucide React
 
-## 🚀 Run locally
+## Requirements
 
-```bash
+- Node.js 22 LTS recommended
+- npm
+- A modern browser
+- Browser location permission for GPS features
+- Provider credentials where required by the selected map or AI feature
+
+## Install on Windows
+
+```powershell
+git clone https://github.com/noity0/hmhs-map.git
+Set-Location hmhs-map
 npm install
+```
+
+Create and edit your local environment file:
+
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+The supplied example includes:
+
+```dotenv
+GEMINI_API_KEY=your_gemini_api_key
+APP_URL=http://localhost:3000
+CANONICAL_DOMAIN=hmhsmap.edgeone.dev
+PUBLIC_SITE_URL=https://hmhsmap.edgeone.dev
+```
+
+Use real values appropriate to your environment. Do not commit API keys or deployment secrets.
+
+## Run and build
+
+```powershell
 npm run dev
 ```
 
-Production:
+For a production build:
 
-```bash
+```powershell
 npm run build
 npm start
 ```
 
-For location features, allow browser geolocation permission. Configure API credentials using environment variables and never commit secrets.
+## Available scripts
 
-## 🔗 Deployment
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Express/TypeScript development server |
+| `npm run build` | Build the frontend and bundle the server |
+| `npm start` | Start the built server |
+| `npm run preview` | Preview the frontend build |
+| `npm run lint` | Run TypeScript checks |
 
-The project is configured around the `hmhsmap.edgeone.dev` domain and includes SEO-related endpoints such as `sitemap.xml` and `robots.txt`.
+## Browser permissions and service notes
 
-## 🔎 Discoverability
+- Allow location access only when you want to use GPS-based features.
+- Use HTTPS for deployed geolocation workflows.
+- Map tiles, geocoding, and routing may be provided by external services with their own usage policies and rate limits.
+- Keep API credentials server-side wherever the provider supports it.
 
-Relevant topics/search terms:
+## Contributing
 
-`navigation-app` `maps` `gps` `route-planner` `turn-by-turn-navigation` `leaflet` `openstreetmap` `osrm` `geolocation` `weather-map` `ai-navigation` `gemini-ai` `react` `typescript` `vite` `express` `tailwindcss` `edgeone` `hmhs`
+Report reproducible bugs with browser, operating system, steps, and relevant console/server messages. Contributions that improve accessibility, map performance, error handling, and documentation are welcome.
 
-For genuine growth, **⭐ star the repository**, share the live demo with developers interested in mapping, and contribute useful fixes or features. Do not use artificial stars, views, or spam.
+- [Issues](https://github.com/noity0/hmhs-map/issues)
+- [Source code](https://github.com/noity0/hmhs-map)
 
-## 👤 Author
+## License
 
-**Hafiz Mohammed Huzaifa Shamim (HMHS)**
+See the repository's `LICENSE` file if present. Without an explicit license, reuse and redistribution are not automatically permitted.
 
-## 📄 License
+## Search terms
 
-See the repository license for usage terms.
+Interactive map, navigation app, route planner, GPS location, geolocation, Leaflet, Google Maps, route exploration, voice guidance, Gemini AI, React, TypeScript, HMHS.
