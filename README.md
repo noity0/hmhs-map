@@ -127,3 +127,34 @@ See the repository's `LICENSE` file if present. Without an explicit license, reu
 ## Search terms
 
 Interactive map, navigation app, route planner, GPS location, geolocation, Leaflet, Google Maps, route exploration, voice guidance, Gemini AI, React, TypeScript, HMHS.
+
+<!-- COMMUNITY-CONTRIBUTORS-SECTION -->
+## Contributors & community
+
+[![Contributors](https://img.shields.io/github/contributors/noity0/hmhs-map?style=flat-square)](https://github.com/noity0/hmhs-map/graphs/contributors)
+[![Pull requests](https://img.shields.io/github/issues-pr/noity0/hmhs-map?style=flat-square)](https://github.com/noity0/hmhs-map/pulls)
+[![Good first issues](https://img.shields.io/github/issues/noity0/hmhs-map/good%20first%20issue?style=flat-square)](https://github.com/noity0/hmhs-map/labels/good%20first%20issue)
+
+<a href="https://github.com/noity0/hmhs-map/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=noity0/hmhs-map" alt="Contributors to hmhs-map" />
+</a>
+
+The contributor graphic and GitHub contributor page reflect **real GitHub contribution activity**. Names, avatars, and contribution counts are not manually invented or assigned. As this project grows, accepted pull requests and other qualifying contributions will appear automatically.
+
+### How to contribute
+
+1. Browse the [open issues](https://github.com/noity0/hmhs-map/issues) and [existing pull requests](https://github.com/noity0/hmhs-map/pulls) before starting work.
+2. For a major change, open an issue first to discuss the proposed approach.
+3. Fork the repository and create a focused feature or fix branch.
+4. Keep changes scoped, document user-visible behavior, and add or update tests when applicable.
+5. Run the checks documented above and include the results in your pull request.
+6. Never include API keys, passwords, personal data, or other secrets in commits or screenshots.
+
+### Open-source ecosystem
+
+This project builds on established open-source tools and developer ecosystems documented in its technology stack. Please visit and support the upstream projects, follow their licenses, and report issues to the correct upstream repository when the problem is not caused by this project.
+
+- [GitHub community and contribution guidelines](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
+- [Open-source licenses explained](https://choosealicense.com/)
+
+**Community note:** No celebrity, company, or upstream maintainer is represented as a project contributor or endorser unless their contribution or endorsement is independently verifiable.
